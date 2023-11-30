@@ -51,14 +51,22 @@ function App() {
             path="/reset-password-confirm/:uid/:token/"
             Component={ResetPwd}
           />
-          <Route path='/admin' Component={DashLayout} >
+          <Route path='/admin' element={
+            <IsAuthenticated>
+              <DashLayout />
+            </IsAuthenticated>
+          } >
             <Route exact path="" element={<Navigate to="dash" />} />
             <Route path='dash' Component={AdminIndex} />
             <Route path='users' Component={User} />
             <Route path='demandes' Component={Demandes} />
             <Route path='preview/:id' Component={PreviewBadge} />
           </Route>
-          <Route path='/team-manager' Component={DashLayout} >
+          <Route path='/team-manager' element={
+            <IsAuthenticated>
+              <DashLayout />
+            </IsAuthenticated>
+          }>
             <Route exact path="" element={<Navigate to="dash" />} />
             <Route path='dash' Component={TeamManagerIndex} />
             <Route path='create' Component={FormParticipant} />

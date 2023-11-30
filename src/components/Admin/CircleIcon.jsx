@@ -1,8 +1,16 @@
 import { Tooltip } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../slices/AuthSlice";
 
 const CircleIcon = ({ Icon, subtile, Element }) => {
   const [isActive, setisActive] = useState(false);
+  const dispatch = useDispatch()
+  const handleLogout = () => {
+    dispatch(logout())
+    localStorage.clear()
+    window.location.href = '/login'
+  }
   return (
     <>
       <div className="relative flex">
@@ -43,7 +51,7 @@ const CircleIcon = ({ Icon, subtile, Element }) => {
                 German
               </li>
               <li className="pr-20 py-2 pl-5 hover:bg-gray-100 duration-200">
-                <a href=""> Se déconnecter </a>
+                <p onClick={handleLogout} > Logout </p>
               </li>
             </ul>
           </div>

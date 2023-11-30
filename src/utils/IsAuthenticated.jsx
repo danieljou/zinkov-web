@@ -8,17 +8,17 @@ const IsAuthenticated = ({ children }) => {
     // console.log(user);
     const location = useLocation();
     const path = location.pathname;
-    const { data, isError, refetch } = useGetTokenExpiryQuery();
+    const { data, isError, refetch, isLoading } = useGetTokenExpiryQuery();
 
 
     useEffect(() => {
         const checkTokenExpiry = () => {
             // console.log(data);
-            if (isError) {
+            if (!isLoading && isError) {
                 toast('Votre session à expiré', { type: 'error' })
                 console.log('Error checking token expiry:');
                 localStorage.removeItem('user'); // Clear the token from local storage or state
-                window.location.href = `/?next=${path}`; // Redirect to the login page
+                window.location.href = `/login`; // Redirect to the login page
             }
         };
 
@@ -41,7 +41,7 @@ const IsAuthenticated = ({ children }) => {
                 ) :
                 (
                     <>
-                        <Navigate to={`/login/?next=${path}`} />
+                        <Navigate to={`/login`} />
                     </>
                 )}
         </>

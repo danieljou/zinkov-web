@@ -16,8 +16,8 @@ const DashHeader = () => {
       <div className="flex gap-x-4 items-center">
         <CircleIcon Icon={AiOutlineFlag} subtile={"Flag"} />
         <CircleIcon Icon={IoNotificationsOutline} subtile={"Notifications"} />
-        <CircleIcon Icon={LuUsers} subtile={"Contacts"} />
-        <CircleIcon Icon={Avatar} Element />
+        <CircleIcon Icon={Avatar} subtile={"Contacts"} />
+        {/* <CircleIcon Icon={Avatar} Element /> */}
       </div>
     </div>
   );

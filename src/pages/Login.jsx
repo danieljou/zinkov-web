@@ -55,7 +55,7 @@ const Login = () => {
                 console.log("NEXT : ", next);
                 // console.log(res.data.token.user)
                 // (user != null) navigate(`/redirect/${next !== "" && (`"?next?"${next}`)})
-                navigate(`/redirect/ ${next !== "" ? (`"?next?"${next}`) : ''} `)
+                navigate(`/redirect`)
 
             }
             else if (res.error) {
@@ -85,7 +85,7 @@ const Login = () => {
             user = null;
         }
 
-        if (user != null) navigate(`/redirect/ ${next !== "" ? (`"?next?"${next}`) : ''} `)
+        if (user != null) navigate(`/redirect`)
 
 
     }, [])
