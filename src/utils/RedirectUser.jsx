@@ -23,7 +23,7 @@ const RedirectUser = () => {
         else {
             navigate('/login')
         }
-    }, [user])
+    }, [user, navigate])
 
     const path = location.pathname;
     return (

@@ -32,7 +32,7 @@ const IsAuthenticated = ({ children }) => {
         return () => {
             clearInterval(interval);
         };
-    }, [data, isError, refetch, path]);
+    }, [data, isError, refetch, isLoading]);
     return (
         <>
             {user.isLogin ?
